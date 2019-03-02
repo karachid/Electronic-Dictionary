@@ -1,5 +1,5 @@
 /*
-Projet r√©alis√© par : Rachid KABBAB Ecole Nationale Sup√©rieure des Mines de Rabat (Ex ENIM 2017)
+Projet rÈalisÈ par : Rachid KABBAB Ecole Nationale SupÈrieure des Mines de Rabat (Ex ENIM 2017)
 */
 #include<conio.h>
 #include<stdio.h>
@@ -10,7 +10,7 @@ Projet r√©alis√© par : Rachid KABBAB Ecole Nationale Sup√©rieure des Mines de Ra
 #include<stddef.h>
 #include<ctype.h>
 
-// D√©finition de la structure d'un noeud -√ßa marche-
+// DÈfinition de la structure d'un noeud -Áa marche-
 struct lettre {
        char car;
        struct lettre *fils;
@@ -20,14 +20,14 @@ struct lettre {
 };
 typedef struct lettre *l;
 
-// Liste d'aide -√ßa marche-
+// Liste d'aide -Áa marche-
 struct dictionnaire{
 	char mot[20],sign[200];
 	struct dictionnaire *suiv;
 };
 typedef struct dictionnaire dico;
 
-// Cr√©ation du dictionnaire -√ßa marche-
+// CrÈation du dictionnaire -Áa marche-
 l creerDictionnaire(){
                       l d = (l)malloc(sizeof(l));
                       d->car = '*';
@@ -38,7 +38,7 @@ l creerDictionnaire(){
                       return d;
                       }
 
-// Chercher un mot dans le dictionnaire -√ßa marche-
+// Chercher un mot dans le dictionnaire -Áa marche-
 int chercher(lettre *R,char* x){
     lettre *p,*q;
     if(R->fils==NULL) return 0;
@@ -55,7 +55,7 @@ int chercher(lettre *R,char* x){
 	return 1;
 }
 
-// - √ßa marche -
+// - Áa marche -
 void detruireDictionnaire(l racine){
           //printf("\ndebut detruire\n");
      if(racine!=NULL){
@@ -70,7 +70,7 @@ void detruireDictionnaire(l racine){
           //printf("\nfin detruire\n");
      }
 
-//Fonction d'ajout -√ßa marche-
+//Fonction d'ajout -Áa marche-
 void ajouterMot(l racine, char *word, char *s){
                l tmp = NULL;
                l f = NULL;
@@ -158,7 +158,7 @@ void ajouterMot(l racine, char *word, char *s){
 							   }
                }
 
-// -√ßa marche-               
+// -Áa marche-               
 void ajouterlist(dico *l,dico *e){
 	dico *p=NULL,*q=NULL;
 	p=l;
@@ -177,7 +177,7 @@ void ajouterlist(dico *l,dico *e){
 	}
 }
 
-// -√ßa marche-
+// -Áa marche-
 void afficher(dico *l){
 	dico *p;
 	p=l->suiv;
@@ -187,7 +187,7 @@ void afficher(dico *l){
 	}
 }
 
-// Suppression aide -√ßa marche-
+// Suppression aide -Áa marche-
 void supprimerlist(dico *l,char *x){
 	dico *p=NULL,*q=NULL;
 	q=l;
@@ -206,7 +206,7 @@ void supprimerlist(dico *l,char *x){
         }
 }
 
-// Suppression d'un mot qui existe dans le dictionnaire -√ßa marche-
+// Suppression d'un mot qui existe dans le dictionnaire -Áa marche-
 void supprimer(l R,dico *l,char x[]){
       dico *p,*q;
 	  supprimerlist(l,x);	
@@ -224,7 +224,7 @@ void supprimer(l R,dico *l,char x[]){
 	}
 }
 	
-// Fonction d'enregistrement du dictionnaire dans un fichier -√ßa marche-
+// Fonction d'enregistrement du dictionnaire dans un fichier -Áa marche-
 void sauvegarderDictionnaire(dico *racine){
     FILE *fichier;
 	dico *p;
@@ -237,7 +237,7 @@ void sauvegarderDictionnaire(dico *racine){
                    fclose(fichier);
      }
 
-// Fonction de r√©cup√©ration d'un dicionnaire pr√©lablement sauvgard√© dans un fichier -√ßa marche-
+// Fonction de rÈcupÈration d'un dicionnaire prËalablement sauvgardÈ dans un fichier -Áa marche-
 void chargerDictionnaire(lettre *R,dico *l){
 	FILE *fichier;
 	dico *e,*p,*q;
@@ -258,7 +258,7 @@ void chargerDictionnaire(lettre *R,dico *l){
 	}
 }
 
-// Affichage de tous les mots du dictionnaire par ordre alphab√©tique (Version recursive - Encore un probl√®me -)
+// Affichage de tous les mots du dictionnaire par ordre alphabÈtique (Version recursive - Encore un problËme -)
 void afficherDictionnaire(l racine){
                             if(racine!=NULL){
                                               printf("%c",racine->car);
