@@ -289,8 +289,9 @@ void menuPrincipal(){
         printf("\t\t\t****************************************\n");
         printf("\t\t\t##                                    ##\n");
         printf("\t\t\t##  Realise par :                     ##\n");
-        printf("\t\t\t##            * KABBAB Rachid         ##\n");
-        printf("\t\t\t##                                    ##\n");
+        printf("\t\t\t##         * KABBAB Rachid            ##\n");
+        printf("\t\t\t##  Ecole / Annee :                   ##\n");
+		printf("\t\t\t##  	     * ENSMR (Ex. ENIM) 2017    ##\n");
         printf("\t\t\t****************************************\n");
         printf("\t\t\t****************************************\n");
         printf("\n\n\n");
