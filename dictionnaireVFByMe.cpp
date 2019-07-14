@@ -40,8 +40,13 @@ l creerDictionnaire(){
 
 // Chercher un mot dans le dictionnaire -ça marche-
 int chercher(lettre *R,char* x){
+	printf("Search function is gonna be executed ... \n");
     lettre *p,*q;
-    if(R->fils==NULL) return 0;
+    printf("ICI 1 \n");
+    if(R->fils==NULL) {
+    	printf("ICI 2 \n");
+    	return 0;
+	}
 	q=R->fils;
     while(x[0]!='\0'){
                       p=q;
@@ -52,6 +57,7 @@ int chercher(lettre *R,char* x){
 	q=p->fils;
 	x++;
     }
+    printf("Search function is done ... \n");
 	return 1;
 }
 
@@ -179,12 +185,16 @@ void ajouterlist(dico *l,dico *e){
 
 // -ça marche-
 void afficher(dico *l){
-	dico *p;
-	p=l->suiv;
-	while(p!=NULL){
-		printf("%s : %s.\n",p->mot,p->sign);
-		p=p->suiv;
+	if(l->suiv!=NULL){
+		printf("\n\nLes mots contenus dans le dictionnaire sont : \n");
+		dico *p;
+		p=l->suiv;
+		while(p!=NULL){
+			printf("%s : %s.\n",p->mot,p->sign);
+			p=p->suiv;
+		}
 	}
+	else printf("\n\nLe dictionnaire ne contient aucun mot pour l'instant ! \n");
 }
 
 // Suppression aide -ça marche-
@@ -285,15 +295,15 @@ void menuPrincipal(){
 	system ("Color 30");
 	do{
         system ("cls");
-        printf("\t\t\t*******************************************\n");
-        printf("\t\t\t*******************************************\n");
-        printf("\t\t\t##                                       ##\n");
-        printf("\t\t\t##   Realise par :                       ##\n");
-        printf("\t\t\t##          * KABBAB Rachid              ##\n");
-        printf("\t\t\t##   Ecole / Annee :                     ##\n");
-		printf("\t\t\t##   	     * ENSMR (Ex. ENIM) 2017     ##\n");
-        printf("\t\t\t*******************************************\n");
-        printf("\t\t\t*******************************************\n");
+        printf("\t\t\t****************************************\n");
+        printf("\t\t\t****************************************\n");
+        printf("\t\t\t##                                    ##\n");
+        printf("\t\t\t##      Realise par :                 ##\n");
+        printf("\t\t\t##          * KABBAB Rachid           ##\n");
+        printf("\t\t\t##      Ecole / Annee :               ##\n");
+		printf("\t\t\t##   	      * ENSMR (Ex.ENIM) 2017  ##\n");
+        printf("\t\t\t****************************************\n");
+        printf("\t\t\t****************************************\n");
         printf("\n\n\n");
         
         printf("\t\t                  GESTION DU DICTIONNAIRE \n");
@@ -377,7 +387,6 @@ void menuPrincipal(){
                        printf("\t\t\t||         Lister tous les mots       ||\n");
                        printf("\t\t\t||                                    ||\n");
                        printf("\t\t\t========================================\n");           
-                       printf("\n\n Les mots contenus dans le dictionnaire sont : \n");
                        afficher(l);
 			           printf("\nAppuyer sur n\'importe quelle touche pour revenir au menu principal\n");
                        getch();
