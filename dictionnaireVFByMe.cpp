@@ -285,15 +285,15 @@ void menuPrincipal(){
 	system ("Color 30");
 	do{
         system ("cls");
-        printf("\t\t\t****************************************\n");
-        printf("\t\t\t****************************************\n");
-        printf("\t\t\t##                                    ##\n");
-        printf("\t\t\t##  Realise par :                     ##\n");
-        printf("\t\t\t##         * KABBAB Rachid            ##\n");
-        printf("\t\t\t##  Ecole / Annee :                   ##\n");
-		printf("\t\t\t##  	     * ENSMR (Ex. ENIM) 2017    ##\n");
-        printf("\t\t\t****************************************\n");
-        printf("\t\t\t****************************************\n");
+        printf("\t\t\t*******************************************\n");
+        printf("\t\t\t*******************************************\n");
+        printf("\t\t\t##                                       ##\n");
+        printf("\t\t\t##   Realise par :                       ##\n");
+        printf("\t\t\t##          * KABBAB Rachid              ##\n");
+        printf("\t\t\t##   Ecole / Annee :                     ##\n");
+		printf("\t\t\t##   	     * ENSMR (Ex. ENIM) 2017     ##\n");
+        printf("\t\t\t*******************************************\n");
+        printf("\t\t\t*******************************************\n");
         printf("\n\n\n");
         
         printf("\t\t                  GESTION DU DICTIONNAIRE \n");
@@ -326,7 +326,7 @@ void menuPrincipal(){
         printf("\t\t\t|7|               Quitter              |\n");
         printf("\t\t\t| |                                    |\n");
         printf("\t\t\t========================================\n");
-		printf("\n\r Choisir ?  (1/2/3/4/5/6) : \n");
+		printf("\n\r Veuillez choisir une option SVP ?  (1/2/3/4/5/6) : \n");
         choix=toupper(getch());
         switch(choix){
 			case '1' : system ("cls");
