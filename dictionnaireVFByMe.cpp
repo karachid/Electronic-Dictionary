@@ -1,5 +1,5 @@
 /*
-Projet réalisé par : Rachid KABBAB Ecole Nationale Supérieure des Mines de Rabat (Ex ENIM 2017)
+Projet rÃ©alisÃ© par : Rachid KABBAB Ecole Nationale SupÃ©rieure des Mines de Rabat (Ex ENIM 2017)
 */
 #include<conio.h>
 #include<stdio.h>
@@ -10,7 +10,7 @@ Projet réalisé par : Rachid KABBAB Ecole Nationale Supérieure des Mines de Rabat
 #include<stddef.h>
 #include<ctype.h>
 
-// Définition de la structure d'un noeud -ça marche-
+// DÃ©finition de la structure d'un noeud -Ã§a marche-
 struct lettre {
        char car;
        struct lettre *fils;
@@ -20,14 +20,14 @@ struct lettre {
 };
 typedef struct lettre *l;
 
-// Liste d'aide -ça marche-
+// Liste d'aide -Ã§a marche-
 struct dictionnaire{
 	char mot[20],sign[200];
 	struct dictionnaire *suiv;
 };
 typedef struct dictionnaire dico;
 
-// Création du dictionnaire -ça marche-
+// CrÃ©ation du dictionnaire -Ã§a marche-
 l creerDictionnaire(){
                       l d = (l)malloc(sizeof(l));
                       d->car = '*';
@@ -38,7 +38,7 @@ l creerDictionnaire(){
                       return d;
                       }
 
-// Chercher un mot dans le dictionnaire -ça marche-
+// Chercher un mot dans le dictionnaire -Ã§a marche-
 int chercher(lettre *R,char* x){
 	printf("Search function is gonna be executed ... \n");
     lettre *p,*q;
@@ -61,7 +61,7 @@ int chercher(lettre *R,char* x){
 	return 1;
 }
 
-// - ça marche -
+// - Ã§a marche -
 void detruireDictionnaire(l racine){
           //printf("\ndebut detruire\n");
      if(racine!=NULL){
@@ -76,7 +76,7 @@ void detruireDictionnaire(l racine){
           //printf("\nfin detruire\n");
      }
 
-//Fonction d'ajout -ça marche-
+//Fonction d'ajout -Ã§a marche-
 void ajouterMot(l racine, char *word, char *s){
                l tmp = NULL;
                l f = NULL;
@@ -164,7 +164,7 @@ void ajouterMot(l racine, char *word, char *s){
 							   }
                }
 
-// -ça marche-               
+// -Ã§a marche-               
 void ajouterlist(dico *l,dico *e){
 	dico *p=NULL,*q=NULL;
 	p=l;
@@ -183,7 +183,7 @@ void ajouterlist(dico *l,dico *e){
 	}
 }
 
-// -ça marche-
+// -Ã§a marche-
 void afficher(dico *l){
 	if(l->suiv!=NULL){
 		printf("\n\nLes mots contenus dans le dictionnaire sont : \n");
@@ -197,7 +197,7 @@ void afficher(dico *l){
 	else printf("\n\nLe dictionnaire ne contient aucun mot pour l'instant ! \n");
 }
 
-// Suppression aide -ça marche-
+// Suppression aide -Ã§a marche-
 void supprimerlist(dico *l,char *x){
 	dico *p=NULL,*q=NULL;
 	q=l;
@@ -216,7 +216,7 @@ void supprimerlist(dico *l,char *x){
         }
 }
 
-// Suppression d'un mot qui existe dans le dictionnaire -ça marche-
+// Suppression d'un mot qui existe dans le dictionnaire -Ã§a marche-
 void supprimer(l R,dico *l,char x[]){
       dico *p,*q;
 	  supprimerlist(l,x);	
@@ -234,7 +234,7 @@ void supprimer(l R,dico *l,char x[]){
 	}
 }
 	
-// Fonction d'enregistrement du dictionnaire dans un fichier -ça marche-
+// Fonction d'enregistrement du dictionnaire dans un fichier -Ã§a marche-
 void sauvegarderDictionnaire(dico *racine){
     FILE *fichier;
 	dico *p;
@@ -247,7 +247,7 @@ void sauvegarderDictionnaire(dico *racine){
                    fclose(fichier);
      }
 
-// Fonction de récupération d'un dicionnaire prèalablement sauvgardé dans un fichier -ça marche-
+// Fonction de rÃ©cupÃ©ration d'un dicionnaire prÃ¨alablement sauvgardÃ© dans un fichier -Ã§a marche-
 void chargerDictionnaire(lettre *R,dico *l){
 	FILE *fichier;
 	dico *e,*p,*q;
@@ -268,7 +268,7 @@ void chargerDictionnaire(lettre *R,dico *l){
 	}
 }
 
-// Affichage de tous les mots du dictionnaire par ordre alphabétique (Version recursive - Encore un problème -)
+// Affichage de tous les mots du dictionnaire par ordre alphabÃ©tique (Version recursive - Encore un problÃ¨me -)
 void afficherDictionnaire(l racine){
                             if(racine!=NULL){
                                               printf("%c",racine->car);
@@ -288,6 +288,10 @@ void menuPrincipal(){
 	char choix;
 	racine=creerDictionnaire();
 	l=(dico*)malloc(sizeof(dico));
+	if(l==NULL){
+		printf("Not Enough Memory !!");
+		exit (-1);
+	}
 	strcpy(l->mot,"null");
 	strcpy(l->sign,"null");
 	l->suiv=NULL;
