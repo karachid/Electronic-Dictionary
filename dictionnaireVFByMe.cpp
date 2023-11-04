@@ -11,7 +11,8 @@ Projet réalisé par : Rachid KABBAB Ecole Nationale Supérieure des Mines de Ra
 #include<ctype.h>
 
 // Définition de la structure d'un noeud -ça marche-
-struct lettre {
+struct lettre 
+{
        char car;
        struct lettre *fils;
        struct lettre *pere;
@@ -21,14 +22,16 @@ struct lettre {
 typedef struct lettre *l;
 
 // Liste d'aide -ça marche-
-struct dictionnaire{
+struct dictionnaire
+{
 	char mot[20],sign[200];
 	struct dictionnaire *suiv;
 };
 typedef struct dictionnaire dico;
 
 // Création du dictionnaire -ça marche-
-l creerDictionnaire(){
+l creerDictionnaire()
+{
                       l d = (l)malloc(sizeof(l));
                       d->car = '*';
                       d->fils=NULL;
@@ -36,45 +39,53 @@ l creerDictionnaire(){
                       strcpy(d->signification,"RACINE");
                       d->frere=NULL;
                       return d;
-                      }
+}
 
 // Chercher un mot dans le dictionnaire -ça marche-
-int chercher(lettre *R,char* x){
+int chercher(lettre *R,char* x)
+{
 	printf("Search function is gonna be executed ... \n");
     lettre *p,*q;
     printf("ICI 1 \n");
-    if(R->fils==NULL) {
+    if(R->fils==NULL)
+    {
     	printf("ICI 2 \n");
     	return 0;
-	}
-	q=R->fils;
-    while(x[0]!='\0'){
-                      p=q;
-                      while (p!=NULL && p->car<x[0]) p=p->frere;
-	if(p==NULL || p->car>x[0]){
+    }
+    q=R->fils;
+    while(x[0]!='\0')
+    {
+        p=q;
+        while (p!=NULL && p->car<x[0]) p=p->frere;
+	if(p==NULL || p->car>x[0])
+        {
 	   return 0;	
 	}
 	q=p->fils;
 	x++;
     }
     printf("Search function is done ... \n");
-	return 1;
+    return 1;
 }
 
 // - ça marche -
-void detruireDictionnaire(l racine){
-          //printf("\ndebut detruire\n");
-     if(racine!=NULL){
-                      if(racine->fils != NULL){
+void detruireDictionnaire(l racine)
+{
+     //printf("\ndebut detruire\n");
+     if(racine!=NULL)
+     {
+                      if(racine->fils != NULL)
+                      {
                                       detruireDictionnaire(racine->fils);                
-                     }
-     if(racine->frere != NULL){
-                                      detruireDictionnaire(racine->frere);                
-          }
-          free(racine);
                       }
-          //printf("\nfin detruire\n");
+     		      if(racine->frere != NULL)
+		      {
+                                      detruireDictionnaire(racine->frere);                
+          	      }
+          	      free(racine);
      }
+     //printf("\nfin detruire\n");
+}
 
 //Fonction d'ajout -ça marche-
 void ajouterMot(l racine, char *word, char *s){
