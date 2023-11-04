@@ -88,90 +88,103 @@ void detruireDictionnaire(l racine)
 }
 
 //Fonction d'ajout -ça marche-
-void ajouterMot(l racine, char *word, char *s){
+void ajouterMot(l racine, char *word, char *s)
+{
                l tmp = NULL;
                l f = NULL;
                l c = NULL;
                l courant = racine;
                //printf("\n le mot est %s \n", word);
-               if(word[0] != '\0'){
-                          //printf("\n au debut de la fonction %c", word[0]);
-                          if(courant->fils==NULL){
-                                                  //("\nici\n");
-                                                  //printf("\nif---debut");
-                                                  //printf("\ntest\n");
-                                                  f = (lettre*)malloc(sizeof(struct lettre)); // ATTENTION
-                                                  /*if(f==NULL){
-                                                              //printf("\nallcation impossible\n");
-                                                              //exit;
-                                                              }
-                                                  printf("\nhere0\n");*/
-                                                  f->car=word[0];
-                                                  //printf("\nhere00\n");
-                                                  f->frere=NULL;
-                                                  f->fils=NULL;
-                                                  f->pere=courant;
-                                                  //printf("\nhere1\n");
-                                                  courant->fils=f;
-                                                  //printf("\nhere\n");
-                                                  //courant->frere=NULL; 
-												  courant=f;
-                                                  word++;  
-                                                  ajouterMot(courant,word,s);
-                                                 // printf("\nif---fin\n");    
-                                                 //printf("ici2");  
-                                                 }
-                          else {
+               if(word[0] != '\0')
+	       {
+                       	  //printf("\n au debut de la fonction %c", word[0]);
+                          if(courant->fils==NULL)
+			  {
+                          	//("\nici\n");
+                          	//printf("\nif---debut");
+                          	//printf("\ntest\n");
+                          	f = (lettre*)malloc(sizeof(struct lettre)); // ATTENTION
+                          	/*if(f==NULL)
+				{
+                                	//printf("\nallcation impossible\n");
+                                        //exit;
+                                }
+                                printf("\nhere0\n");*/
+                                f->car=word[0];
+                                //printf("\nhere00\n");
+                                f->frere=NULL;
+                                f->fils=NULL;
+                                f->pere=courant;
+                                //printf("\nhere1\n");
+                                courant->fils=f;
+                                //printf("\nhere\n");
+                                //courant->frere=NULL; 
+				courant=f;
+                                word++;  
+                                ajouterMot(courant,word,s);
+                                // printf("\nif---fin\n");    
+                                //printf("ici2");  
+                          }
+                          else
+			  {
                                c = courant;
                                courant = courant->fils;
-                               while(courant!=NULL && courant->car < word[0]){
-                                                   tmp=courant;
-                                                   courant=courant->frere;
-                                       }
-                                       if(courant!=NULL){
-                                                         if(courant->car == word[0]){
-                                                              word++;
-                                                              ajouterMot(courant,word,s);      
-                                                            }
-                                                            else if(courant->car > word[0]){
-                                                                 if(tmp==NULL){
-                                                                               f = (lettre*)malloc(sizeof(lettre));
-																			   f->car=word[0];
-                                                                               f->fils=NULL;
-                                                                               f->pere=c;
-																               f->frere=courant;
-																               c->fils=f;
-																			   courant=f;
-																			   word++;
-																			   ajouterMot(courant,word,s);
-																			   }
-                                                                 if (tmp!=NULL){
-																			   f = (lettre*)malloc(sizeof(lettre));
-																			   f->car=word[0];
-                                                                               f->fils=NULL;
-																			   f->pere=c;
-																			   tmp->frere=f;
-																			   f->frere=courant;
-																			   courant=f;
-																			   word++;
-																			   ajouterMot(courant,word,s);
-                                                                               }				
-                                                                 }
-                                                        }
-														else {
-															     f = (lettre*)malloc(sizeof(lettre));
-                                                                 f->car=word[0];
-                                                                 f->fils=NULL;
-                                                                 f->pere=c;
-																 tmp->frere=f;
-																 word++;
-																 courant=f;
-																 ajouterMot(courant,word,s);
-														}
+                               while(courant!=NULL && courant->car < word[0])
+			       {
+                               		tmp=courant;
+                                        courant=courant->frere;
                                }
+                               if(courant!=NULL)
+			       {
+					if(courant->car == word[0])
+					{
+						word++;
+                                                ajouterMot(courant,word,s);      
+                                        }
+                                        else if(courant->car > word[0])
+					{
+                                        	if(tmp==NULL)
+						{
+                                                	f = (lettre*)malloc(sizeof(lettre));
+							f->car=word[0];
+                                                        f->fils=NULL;
+                                                        f->pere=c;
+							f->frere=courant;
+							c->fils=f;
+							courant=f;
+							word++;
+							ajouterMot(courant,word,s);
+						}
+                                                if(tmp!=NULL)
+						{
+							f = (lettre*)malloc(sizeof(lettre));
+							f->car=word[0];
+                                                        f->fils=NULL;
+							f->pere=c;
+							tmp->frere=f;
+							f->frere=courant;
+							courant=f;
+							word++;
+							ajouterMot(courant,word,s);
+                                                }				
+                                       }
+                                }
+				else
+				{
+					f = (lettre*)malloc(sizeof(lettre));
+                                        f->car=word[0];
+                                        f->fils=NULL;
+                                        f->pere=c;
+					tmp->frere=f;
+					word++;
+					courant=f;
+					ajouterMot(courant,word,s);
+				}
+                         }
                                } 
-							   else {
-								   strcpy(courant->signification,s);
+							   else 
+							   {
+								strcpy(courant->signification,s);
 							   }
                }
 
